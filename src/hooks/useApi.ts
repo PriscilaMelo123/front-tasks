@@ -1,0 +1,56 @@
+/* eslint-disable no-unreachable */
+import axios from "axios";
+
+export const api = axios.create({
+  baseURL: "http://localhost:3333",
+});
+
+export const useApi = () => ({
+  //REVISAO-----NAO PRECISA DE VALIDATETOKEN
+  // validateToken: async (token: string) => {
+  //   const response = await api.get(`/task/readTasksByUserId?token=${token}`);
+  //   return response.data;
+  // },
+
+  // signin: async (name: string, pass: string) => {
+  //   const response = await api.post("/user/login", { name, pass });
+  //   return response.data;
+  // },
+
+  // signup: async (name: string, pass: string, Rpass: string) => {
+  //   const response = await api.post("/user", { name, pass, Rpass });
+  //   return response.data;
+  // },
+
+  // logout: async () => {
+  //   return { status: true };
+  //   const response = await api.post("/logout");
+  //   return response.status;
+  // },
+
+  loadTask: async () => {
+    const response = await api.get(`/tasks`);
+    //debugger;
+    return response.data;
+  },
+
+  createTask: async (description: string, detail: string) => {
+    const response = await api.post("/tasks/", { description, detail });
+    return response.data;
+  },
+
+  editTask: async (id: string, description: string, detail: string) => {
+    const response = await api.put(`/tasks/${id}`, {
+      description,
+      detail,
+    });
+    //debugger;
+    console.log(response);
+    return response.data;
+  },
+
+  deletTask: async (id: string) => {
+    const response = await api.delete(`/tasks/${id}`);
+    return response.data;
+  },
+});
