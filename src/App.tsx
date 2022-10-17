@@ -11,9 +11,9 @@ import { AuthContext } from "./contexts/Auth/AuthContext";
 import { Editar } from "./components/Editar/Editar";
 
 function App() {
-  const navigate = useNavigate();
-  const userToken = localStorage.getItem("authToken");
-  const auth = useContext(AuthContext);
+  // const navigate = useNavigate();
+  // const userToken = localStorage.getItem("authToken");
+  // const auth = useContext(AuthContext);
 
   // useEffect(() => {
   //   auth.loadTask();

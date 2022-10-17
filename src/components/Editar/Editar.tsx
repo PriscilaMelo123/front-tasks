@@ -7,8 +7,9 @@ export const Editar: any = () => {
   const auth = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const userName = localStorage.getItem("authName");
-  const userToken = localStorage.getItem("authToken");
+  //------FUNÇÕES NÃO UTILIZADAS NESSE PROJETO-----
+  // const userName = localStorage.getItem("authName");
+  // const userToken = localStorage.getItem("authToken");
 
   const params = useParams();
   const [description, setDescription] = useState("");
@@ -46,17 +47,7 @@ export const Editar: any = () => {
           <header className='container-fluid bg-white rounded-4'>
             <div className=''>
               <h1 className='fw-bold text-center p-2'>Meus Recados</h1>
-              <h2 className='text-center p-2'>
-                Bem vindo -{" "}
-                <span className='text-center text-decoration-underline fs-4 p-2'>
-                  {userName}
-                </span>
-              </h2>
-              {/* <div>
-                <button onClick={voltar} className='btn btn-primary m-1'>
-                  Voltar
-                </button>
-              </div> */}
+              <h2 className='text-center p-2'>Bem vindo</h2>
             </div>
           </header>
         </div>
@@ -72,7 +63,6 @@ export const Editar: any = () => {
               placeholder='Descrição'
               name='description'
               id='description'
-              //value={result?.description}
               onChange={handleDescriptionInput}
             />
           </Form.Group>
@@ -82,7 +72,6 @@ export const Editar: any = () => {
               placeholder='Detalhamento'
               name='detail'
               id='detail'
-              //value={result?.detail}
               onChange={handleDetailInput}
             />
           </Form.Group>
@@ -90,7 +79,6 @@ export const Editar: any = () => {
             <Button
               className=' btn col-12 col-sm-2 m-1'
               variant='success'
-              // onClick={createTk}
               type='submit'
             >
               Salvar

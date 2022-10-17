@@ -7,16 +7,16 @@ import { Recado } from "../../types/User";
 export const Recados: any = () => {
   const auth = useContext(AuthContext);
   const navigate = useNavigate();
-
-  const userToken = localStorage.getItem("authToken");
-  const userName = localStorage.getItem("authName");
-  const usersStorage = localStorage.getItem("authData");
-
   const [tasks, setTasks] = useState<Recado[]>([]);
 
   function newTask() {
     navigate("/new_tasks");
   }
+
+  //------FUNÇÕES NÃO UTILIZADAS NESSE PROJETO-----
+  // const userToken = localStorage.getItem("authToken");
+  // const userName = localStorage.getItem("authName");
+  // const usersStorage = localStorage.getItem("authData");
 
   // const handleLogout = async () => {
   //   await auth.signout();
@@ -25,9 +25,7 @@ export const Recados: any = () => {
 
   const handleLoadTask = async () => {
     const tasks = await auth.loadTask();
-    //debugger;
     setTasks(tasks);
-    console.log("recados");
   };
 
   async function handleDeletTask(id: string) {

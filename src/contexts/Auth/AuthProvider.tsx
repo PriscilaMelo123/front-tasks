@@ -7,6 +7,7 @@ export const AuthProvider = ({ children }: { children: JSX.Element }) => {
   const [user, setUser] = useState<Login | null>(null);
   const api = useApi();
 
+  //------FUNÇÕES NÃO UTILIZADAS NESSE PROJETO-----
   // const userToken = localStorage.getItem("authToken");
 
   // useEffect(() => {
@@ -68,8 +69,6 @@ export const AuthProvider = ({ children }: { children: JSX.Element }) => {
 
   const editTask = async (id: string, description: string, detail: string) => {
     const data = await api.editTask(id, description, detail);
-    //debugger;
-    console.log(data);
     if (data.ok) {
       setUser(data);
       return true;
@@ -82,21 +81,22 @@ export const AuthProvider = ({ children }: { children: JSX.Element }) => {
     return data;
   };
 
-  const setToken = (token: string) => {
-    localStorage.setItem("authToken", token);
-  };
+  //------LOCALSTORAGE NÃO UTILIZADO NESSE PROJETO-----
+  // const setToken = (token: string) => {
+  //   localStorage.setItem("authToken", token);
+  // };
 
-  const setData = (data: any) => {
-    localStorage.setItem("authData", JSON.stringify(data));
-  };
+  // const setData = (data: any) => {
+  //   localStorage.setItem("authData", JSON.stringify(data));
+  // };
 
-  const setUserName = (data: string) => {
-    localStorage.setItem("authName", JSON.stringify(data));
-  };
+  // const setUserName = (data: string) => {
+  //   localStorage.setItem("authName", JSON.stringify(data));
+  // };
 
-  const setUserId = (data: string) => {
-    localStorage.setItem("authId", JSON.stringify(data));
-  };
+  // const setUserId = (data: string) => {
+  //   localStorage.setItem("authId", JSON.stringify(data));
+  // };
 
   return (
     <AuthContext.Provider

@@ -6,7 +6,7 @@ export const api = axios.create({
 });
 
 export const useApi = () => ({
-  //REVISAO-----NAO PRECISA DE VALIDATETOKEN
+  //------FUNÇÕES NÃO UTILIZADAS NESSE PROJETO-----
   // validateToken: async (token: string) => {
   //   const response = await api.get(`/task/readTasksByUserId?token=${token}`);
   //   return response.data;
@@ -30,7 +30,6 @@ export const useApi = () => ({
 
   loadTask: async () => {
     const response = await api.get(`/tasks`);
-    //debugger;
     return response.data;
   },
 
@@ -44,8 +43,6 @@ export const useApi = () => ({
       description,
       detail,
     });
-    //debugger;
-    console.log(response);
     return response.data;
   },
 
