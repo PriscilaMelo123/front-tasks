@@ -9,7 +9,7 @@ export const Editar: any = () => {
 
   //------FUNÇÕES NÃO UTILIZADAS NESSE PROJETO-----
   // const userName = localStorage.getItem("authName");
-  // const userToken = localStorage.getItem("authToken");
+  const userToken = localStorage.getItem("authToken");
 
   const params = useParams();
   const [description, setDescription] = useState("");
@@ -24,20 +24,19 @@ export const Editar: any = () => {
   };
 
   function voltar() {
-    navigate("/");
+    navigate("/private");
   }
 
   async function handleEditTask() {
     setDescription(description);
     setDetail(detail);
-    debugger;
     if (params) {
       const id = params.id;
       if (id) {
         await auth.editTask(id, description, detail);
       }
     }
-    navigate("/");
+    navigate("/private");
   }
 
   return (

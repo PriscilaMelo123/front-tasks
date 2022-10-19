@@ -9,7 +9,7 @@ export const Formulario: any = () => {
 
   //------FUNÇÕES NÃO UTILIZADAS NESSE PROJETO-----
   // const userName = localStorage.getItem("authName");
-  // const userToken = localStorage.getItem("authToken");
+  const userToken = localStorage.getItem("authToken");
 
   const [description, setDescription] = useState("");
   const [detail, setDetail] = useState("");
@@ -25,13 +25,12 @@ export const Formulario: any = () => {
   async function handleCreateTask() {
     setDescription(description);
     setDetail(detail);
-    debugger;
     await auth.createTask(description, detail);
-    navigate("/");
+    navigate("/private");
   }
 
   function voltar() {
-    navigate("/");
+    navigate("/private");
   }
 
   return (

@@ -11,24 +11,55 @@ import { AuthContext } from "./contexts/Auth/AuthContext";
 import { Editar } from "./components/Editar/Editar";
 
 function App() {
-  // const navigate = useNavigate();
-  // const userToken = localStorage.getItem("authToken");
-  // const auth = useContext(AuthContext);
+  const navigate = useNavigate();
+  const userToken = localStorage.getItem("authToken");
+  const auth = useContext(AuthContext);
 
-  // useEffect(() => {
-  //   auth.loadTask();
-  //   console.log("app");
-  // }, []);
+  useEffect(() => {
+    if (userToken) {
+      auth.loadTask(userToken);
+      console.log("app");
+      navigate("/private");
+    }
+  }, []);
 
   return (
     <div className='App'>
       <Routes>
-        {/* <Route path='/' element={<Login />} />
-        <Route path='/signup' element={<CriarLogin />} /> */}
-        <Route path='/' element={<Recados />} />
-        <Route path='/new_tasks' element={<Formulario />} />
-        <Route path='/edit_tasks/:id' element={<Editar />} />
-        {/* <Route path='/private' element={<Private />} /> */}
+        <Route path='/' element={<Login />} />
+        <Route path='/signup' element={<CriarLogin />} />
+        <Route
+          path='/tasks'
+          element={
+            <RequireAuth>
+              <Recados />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path='/new_tasks'
+          element={
+            <RequireAuth>
+              <Formulario />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path='/edit_tasks/:id'
+          element={
+            <RequireAuth>
+              <Editar />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path='/private'
+          element={
+            <RequireAuth>
+              <Private />
+            </RequireAuth>
+          }
+        />
       </Routes>
     </div>
   );

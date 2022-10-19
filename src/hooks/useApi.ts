@@ -8,25 +8,25 @@ export const api = axios.create({
 export const useApi = () => ({
   //------FUNÇÕES NÃO UTILIZADAS NESSE PROJETO-----
   // validateToken: async (token: string) => {
-  //   const response = await api.get(`/task/readTasksByUserId?token=${token}`);
+  //   const response = await api.get(`/task/${token}`);
   //   return response.data;
   // },
 
-  // signin: async (name: string, pass: string) => {
-  //   const response = await api.post("/user/login", { name, pass });
-  //   return response.data;
-  // },
+  signin: async (name: string, pass: string) => {
+    const response = await api.post("/user/login", { name, pass });
+    return response.data;
+  },
 
-  // signup: async (name: string, pass: string, Rpass: string) => {
-  //   const response = await api.post("/user", { name, pass, Rpass });
-  //   return response.data;
-  // },
+  signup: async (name: string, pass: string, Rpass: string) => {
+    const response = await api.post("/user", { name, pass, Rpass });
+    return response.data;
+  },
 
-  // logout: async () => {
-  //   return { status: true };
-  //   const response = await api.post("/logout");
-  //   return response.status;
-  // },
+  logout: async () => {
+    return { status: false };
+    const response = await api.post("/logout");
+    return response.status;
+  },
 
   loadTask: async () => {
     const response = await api.get(`/tasks`);

@@ -6,12 +6,11 @@ export const Private = () => {
   const auth = useContext(AuthContext);
   const userToken = localStorage.getItem("authToken");
 
-  // useEffect(() => {
-  //   if (userToken) {
-  //     auth.loadTask(userToken);
-  //     console.log("private");
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (userToken) {
+      auth.loadTask(userToken);
+    }
+  }, []);
 
   return (
     <div>
